@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+
+    "name": "Gist-it Create",
+    "description": "Select some code on github to create a gist",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+
+    "background": {
+        "page": "background.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://github.com/*"],
+            "js": ["selection.js"]
+        }
+    ],
+    "permissions": ["clipboardWrite", "tabs", "notifications", "*://*/*", "*://*/*", "activeTab"],
+    "externally_connectable": {
+        "matches": ["*://github.com/*"]
+    },
+    "icons": { "128": "icon.png"}
+}
